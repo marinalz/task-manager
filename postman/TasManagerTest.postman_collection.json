@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "18115974-ae83-459d-b002-415124aecac6",
+		"name": "TasManagerTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"title\": \"title\",\r\n        \"description\": \"description\",\r\n        \"finished\": \"true\",\r\n        \"createDate\": \"2021-08-23T16:29:01.853\",\r\n        \"updateDate\": \"2021-08-23T16:29:01.853\",\r\n        \"createBy\": \"test10@user.com\",\r\n        \"updateBy\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Task Null Title",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"description\": \"description 10\",\r\n        \"finished\": \"true\",\r\n        \"createDate\": \"2021-08-10T16:29:01.853\",\r\n        \"updateDate\": \"2021-08-10T16:29:01.853\",\r\n        \"createBy\": \"test10@user.com\",\r\n        \"updateBy\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Task Wrong Format Date",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"title\": \"title10\",\r\n        \"description\": \"description 10\",\r\n        \"finished\": \"true\",\r\n        \"createDate\": \"aaa\",\r\n        \"updateDate\": \"2021-08-23T16:29:01.853\",\r\n        \"createBy\": \"test10@user.com\",\r\n        \"updateBy\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task By Id Not Exist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": \"1\",\r\n        \"title\": \"title updated\",\r\n        \"description\": \"description 10\",\r\n        \"finished\": \"true\",\r\n        \"createDate\": \"2021-08-23T16:29:01.853\",\r\n        \"createBy\": \"test10@user.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task Null Title",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n      \"id\": \"1\",\r\n        \"description\": \"description 10\",\r\n        \"finished\": \"true\",\r\n        \"createDate\": \"2021-08-23T16:29:01.853\",\r\n        \"createBy\": \"test10@user.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task Not Exist",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": \"100\",\r\n        \"title\": \"title updated\",\r\n        \"description\": \"description 10\",\r\n        \"finished\": \"true\",\r\n        \"createDate\": \"2021-08-23T16:29:01.853\",\r\n        \"createBy\": \"test10@user.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task Not Exist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/mimacom/task/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mimacom",
+						"task",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
