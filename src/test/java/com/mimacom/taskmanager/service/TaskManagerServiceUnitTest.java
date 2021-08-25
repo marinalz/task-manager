@@ -12,6 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.ValidationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -104,6 +105,26 @@ public class TaskManagerServiceUnitTest {
             final Task task = taskManagerService.updateTask(mockTask);
         } catch (EntityNotFoundException ex) {
             assertEquals("Task not found", ex.getMessage());
+        }
+    }
+
+    @Test
+    public void setTaskAsFinishedTest() {
+        when(taskManagerDAO.findById(Mockito.anyLong())).thenReturn(Optional.of(mockTask));
+        when(taskManagerDAO.save(Mockito.any())).thenReturn(mockTask);
+        final Task task = taskManagerService.setTaskAsFinished(1L);
+        assertNotNull(task);
+        assertEquals(Boolean.TRUE, task.getFinished());
+    }
+
+    @Test
+    public void setTaskAsFinishedAlreadyFinishedTest() {
+        when(taskManagerDAO.findById(Mockito.anyLong())).thenReturn(Optional.of(mockTask));
+        when(taskManagerService.setTaskAsFinished(Mockito.anyLong())).thenThrow(ValidationException.class);
+        try {
+            final Task task = taskManagerService.setTaskAsFinished(1L);
+        } catch (ValidationException ex) {
+            assertEquals("Task already finished", ex.getMessage());
         }
     }
 

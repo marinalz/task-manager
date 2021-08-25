@@ -59,17 +59,17 @@ public class TaskManagerControllerITest {
     }
 
     @Test
-    public void getTaskByIdNotFoundTest() throws Exception {
-        doThrow(EntityNotFoundException.class).when(taskService).getTaskById(Mockito.any());
-        mockMvc.perform(get(URL.concat("/1")))
-                .andExpect(status().isNotFound());
-    }
-
-    @Test
     public void getTaskByIdTest() throws Exception {
         when(taskService.getTaskById(Mockito.any())).thenReturn(mockTask);
         mockMvc.perform(get(URL.concat("/1")))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void getTaskByIdNotFoundTest() throws Exception {
+        doThrow(EntityNotFoundException.class).when(taskService).getTaskById(Mockito.any());
+        mockMvc.perform(get(URL.concat("/1")))
+                .andExpect(status().isNotFound());
     }
 
     @Test

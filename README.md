@@ -17,7 +17,7 @@ Used a database H2 that can be found in http://localhost:8080/h2 once the applic
 Data access: 
 ```
 - Driver Class: org.h2.Driver 
-- JDBC URL: jdbc:h2:mem:mimacom 
+- JDBC URL: jdbc:h2:~/test
 - User Name: sa 
 - Password:
 ```

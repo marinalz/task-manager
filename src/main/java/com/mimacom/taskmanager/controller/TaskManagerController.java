@@ -26,7 +26,7 @@ public class TaskManagerController {
     }
 
     @GetMapping(value = "task/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Task getTaskByID(@PathVariable(value = "id") String id){
+    public Task getTaskById(@PathVariable(value = "id") String id){
         return taskManagerService.getTaskById(Long.parseLong(id));
     }
 
@@ -41,7 +41,7 @@ public class TaskManagerController {
     }
 
     @PutMapping(value = "/task/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Task> finalizeTask(@PathVariable(value = "id") String id){
+    public ResponseEntity<Task> setTaskAsFinished(@PathVariable(value = "id") String id){
         return new ResponseEntity<>(taskManagerService.setTaskAsFinished(Long.parseLong(id)), HttpStatus.OK);
     }
 

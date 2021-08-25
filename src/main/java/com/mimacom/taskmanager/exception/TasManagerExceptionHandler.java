@@ -1,6 +1,5 @@
 package com.mimacom.taskmanager.exception;
 
-import lombok.extern.slf4j.Slf4j;
 import org.hibernate.PropertyValueException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.ValidationException;
 import java.time.LocalDateTime;
 
-@Slf4j
 @ControllerAdvice
 public class TasManagerExceptionHandler {
 
